@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026曲靖218购物广场运营部甘特图</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/frappe-gantt@0.6.1/dist/frappe-gantt.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/frappe-gantt@0.6.1/dist/frappe-gantt.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        phase1: '#4E7DE9',
+                        phase2: '#63C2DE',
+                        phase3: '#4ECDC4',
+                        phase4: '#45B7D1',
+                        phase5: '#96CEB4',
+                        phase6: '#FFEAA7',
+                        phase7: '#DDA0DD',
+                        phase8: '#98D8C8',
+                        phase9: '#F7DC6F',
+                        phase10: '#BB8FCE',
+                        phase11: '#85C1E9',
+                        phase12: '#F8C471',
+                        phase13: '#82E0AA',
+                        phase14: '#F1948A',
+                        phase15: '#5499C7',
+                        phase16: '#F39C12',
+                        phase17: '#E74C3C',
+                        phase18: '#3498DB',
+                        phase19: '#9B59B6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .gantt-container {
+                height: 1800px;
+                overflow-y: auto;
+                scrollbar-width: thin;
+            }
+            .header-shadow {
+                box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 页面头部 -->
+    <header class="bg-white header-shadow py-6 px-4 md:px-8">
+        <div class="container mx-auto">
+            <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-gray-800 flex items-center">
+                <<i class="fas fa-chart-line text-primary mr-3"></</i>
+                2026曲靖218购物广场运营部甘特图
+            </h1>
+            <p class="text-gray-500 mt-2">负责人：钱雄飞 | 核心任务：店铺运营+数据监控+数据复盘 | 覆盖19个节日</p>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="container mx-auto py-6 px-4 md:px-8">
+        <!-- 筛选工具栏（确保字段匹配） -->
+        <div class="bg-white rounded-lg p-4 mb-6 shadow-sm flex flex-wrap gap-4">
+            <div class="flex items-center">
+                <label class="text-gray-600 mr-2">节日阶段：</label>
+                <select id="phase-filter" class="border border-gray-300 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                    <option value="all">全部阶段</option>
+                    <option value="phase1">阶段一：元旦（2025.12.26-2026.1.6）</option>
+                    <option value="phase2">阶段二：情人节（2026.2.11-2026.2.16）</option>
+                    <option value="phase3">阶段三：春节（2026.2.10-2026.2.26）</option>
+                    <option value="phase4">阶段四：妇女节（2026.3.3-2026.3.10）</option>
+                    <option value="phase5">阶段五：植树节（2026.3.10-2026.3.14）</option>
+                    <option value="phase6">阶段六：清明节（2026.3.31-2026.4.8）</option>
+                    <option value="phase7">阶段七：劳动节（2026.4.25-2026.5.5）</option>
+                    <option value="phase8">阶段八：母亲节（2026.5.6-2026.5.14）</option>
+                    <option value="phase9">阶段九：端午节（2026.6.15-2026.6.24）</option>
+                    <option value="phase10">阶段十：父亲节（2026.6.15-2026.6.24）</option>
+                    <option value="phase11">阶段十一：七夕节（2026.8.15-2026.8.23）</option>
+                    <option value="phase12">阶段十二：中元节（2026.8.23-2026.8.29）</option>
+                    <option value="phase13">阶段十三：教师节（2026.9.1-2026.9.14）</option>
+                    <option value="phase14">阶段十四：中秋节（2026.9.21-2026.9.28）</option>
+                    <option value="phase15">阶段十五：国庆节（2026.9.28-2026.10.9）</option>
+                    <option value="phase16">阶段十六：重阳节（2026.10.15-2026.10.20）</option>
+                    <option value="phase17">阶段十七：双11（2026.10.25-2026.11.16）</option>
+                    <option value="phase18">阶段十八：双十二（2026.12.5-2026.12.19）</option>
+                    <option value="phase19">阶段十九：圣诞节（2026.12.20-2026.12.28）</option>
+                </select>
+            </div>
+            <div class="flex items-center">
+                <label class="text-gray-600 mr-2">负责人：</label>
+                <select id="owner-filter" class="border border-gray-300 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                    <option value="all">全部负责人</option>
+                    <option value="钱雄飞">钱雄飞（运营部负责人）</option>
+                    <option value="杨倩">杨倩（运营）</option>
+                    <option value="陈欣">陈欣（运营）</option>
+                </select>
+            </div>
+            <div class="flex items-center">
+                <label class="text-gray-600 mr-2">任务类型：</label>
+                <select id="task-type-filter" class="border border-gray-300 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                    <option value="all">全部类型</option>
+                    <option value="筹备">前期：店铺运营对接</option>
+                    <option value="执行">中期：数据监控</option>
+                    <option value="复盘">后期：数据复盘</option>
+                </select>
+            </div>
+            <button id="reset-filter" class="ml-auto bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-1.5 rounded-md transition-colors flex items-center">
+                <<i class="fas fa-redo mr-2"></</i>重置筛选
+            </button>
+        </div>
+
+        <!-- 甘特图容器（确保渲染正常） -->
+        <div class="bg-white rounded-lg shadow-sm p-4">
+            <div id="gantt-chart" class="gantt-container"></div>
+        </div>
+
+        <!-- 核心职责说明 -->
+        <div class="mt-6 bg-white rounded-lg p-4 shadow-sm">
+            <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                <<i class="fas fa-bullseye text-primary mr-2"></</i>运营部核心职责
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-600">
+                <div class="flex items-start"><<i class="fas fa-check-circle text-primary mt-1 mr-2"></</i><span>门店装修：按节日更新抖音门店视觉与文案（如春节年货专区、中元节庄重文案）</span></div>
+                <div class="flex items-start"><<i class="fas fa-check-circle text-primary mt-1 mr-2"></</i><span>系统对接：确保团购、核销功能正常，完成员工后台操作与AIGC培训</span></div>
+                <div class="flex items-start"><<i class="fas fa-check-circle text-primary mt-1 mr-2"></</i><span>数据监控：实时追踪销量、播放量、转化率、POI热度，动态调整策略</span></div>
+                <div class="flex items-start"><<i class="fas fa-check-circle text-primary mt-1 mr-2"></</i><span>合规把控：敏感节日（如中元节）确保内容庄重，避免不当表述</span></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 任务详情弹窗 -->
+    <div id="task-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg w-full max-w-2xl max-h-[80vh] overflow-y-auto p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modal-title" class="text-xl font-bold text-gray-800"></h3>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                    <<i class="fas fa-times text-xl"></</i>
+                </button>
+            </div>
+            <div class="space-y-3 text-gray-700">
+                <div class="grid grid-cols-2 gap-2">
+                    <div><span class="font-semibold text-gray-600">节日阶段：</span><span id="modal-phase"></span></div>
+                    <div><span class="font-semibold text-gray-600">执行时间：</span><span id="modal-time"></span></div>
+                    <div><span class="font-semibold text-gray-600">负责人：</span><span id="modal-owner"></span></div>
+                    <div><span class="font-semibold text-gray-600">任务类型：</span><span id="modal-task-type"></span></div>
+                </div>
+                <div>
+                    <span class="font-semibold text-gray-600">协同人员：</span>
+                    <span id="modal-team"></span>
+                </div>
+                <div>
+                    <span class="font-semibold text-gray-600">具体工作内容：</span>
+                    <div id="modal-content" class="mt-1 p-3 bg-gray-50 rounded-md text-sm"></div>
+                </div>
+            </div>
+            <div class="mt-6 text-right">
+                <button id="modal-close-btn" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md transition-colors">
+                    关闭
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 运营部完整任务数据（严格匹配运营.docx）
+        const ganttData = [
+            // 阶段一：元旦（2025.12.26-2026.1.6）
+            {
+                id: 'op-p1-1',
+                name: '店铺运营对接',
+                start: '2025-12-26',
+                end: '2025-12-29',
+                progress: 100,
+                phase: 'phase1',
+                phaseName: '阶段一：元旦',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 协助商家优化抖音门店基础建设（门店装修、基本信息、相册、特色品添加）；2. 确保店铺账号与抖音来客、抖音企业号后台正常对接'
+            },
+            {
+                id: 'op-p1-2',
+                name: '数据监控',
+                start: '2025-12-29',
+                end: '2026-01-04',
+                progress: 100,
+                phase: 'phase1',
+                phaseName: '阶段一：元旦',
+                owner: '杨倩',
+                team: '陈欣',
+                taskType: '执行',
+                content: '1. 每日监控运营数据（团购套餐销量、短视频播放量、直播观看人数）；2. 依据平台及元旦节点定制话题，引导带POI及话题的短视频发布，监控话题与POI热度'
+            },
+            {
+                id: 'op-p1-3',
+                name: '数据复盘',
+                start: '2026-01-04',
+                end: '2026-01-06',
+                progress: 100,
+                phase: 'phase1',
+                phaseName: '阶段一：元旦',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 整理元旦活动期间运营数据（销量、流量、达人效果），形成数据报告；2. 进行周期性复盘与数据分析，总结亮点与不足'
+            },
+
+            // 阶段二：情人节（2026.2.11-2026.2.16）
+            {
+                id: 'op-p2-1',
+                name: '店铺运营对接',
+                start: '2026-02-11',
+                end: '2026-02-12',
+                progress: 100,
+                phase: 'phase2',
+                phaseName: '阶段二：情人节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 检查并维护商家抖音门店信息，更新情人节相关装修与基本信息；2. 确保团购商品展示正常，协助商家熟悉抖音来客及企业号后台操作'
+            },
+            {
+                id: 'op-p2-2',
+                name: '数据监控',
+                start: '2026-02-13',
+                end: '2026-02-15',
+                progress: 100,
+                phase: 'phase2',
+                phaseName: '阶段二：情人节',
+                owner: '陈欣',
+                team: '杨倩',
+                taskType: '执行',
+                content: '1. 实时监控活动数据（套餐转化率、短视频互动量、直播销售额）；2. 监控POI热度，通过定制话题引导短视频发布，维持热度'
+            },
+            {
+                id: 'op-p2-3',
+                name: '数据复盘',
+                start: '2026-02-15',
+                end: '2026-02-16',
+                progress: 100,
+                phase: 'phase2',
+                phaseName: '阶段二：情人节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 汇总情人节活动数据，分析效果，对比预期目标找出差距；2. 对达人推广、直播运营、套餐设计等环节进行复盘，总结经验'
+            },
+
+            // 阶段三：春节（2026.2.10-2026.2.26）
+            {
+                id: 'op-p3-1',
+                name: '店铺运营对接',
+                start: '2026-02-10',
+                end: '2026-02-16',
+                progress: 100,
+                phase: 'phase3',
+                phaseName: '阶段三：春节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 优化门店春节主题装修，更新年货专区及活动信息；2. 确保店铺账号后台对接正常，协助配置套餐核销规则'
+            },
+            {
+                id: 'op-p3-2',
+                name: '数据监控',
+                start: '2026-02-17',
+                end: '2026-02-23',
+                progress: 100,
+                phase: 'phase3',
+                phaseName: '阶段三：春节',
+                owner: '杨倩',
+                team: '陈欣',
+                taskType: '执行',
+                content: '1. 每日监控活动数据（销量、播放量、直播人数、POI热度）；2. 基于数据调整运营策略，加大热门内容推广力度'
+            },
+            {
+                id: 'op-p3-3',
+                name: '数据复盘',
+                start: '2026-02-24',
+                end: '2026-02-26',
+                progress: 100,
+                phase: 'phase3',
+                phaseName: '阶段三：春节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 整理全量数据形成报告，分析亮点与不足；2. 总结年货、家庭套餐的用户偏好，为后续节日活动提供参考'
+            },
+
+            // 阶段四：妇女节（2026.3.3-2026.3.10）
+            {
+                id: 'op-p4-1',
+                name: '店铺运营对接',
+                start: '2026-03-03',
+                end: '2026-03-06',
+                progress: 100,
+                phase: 'phase4',
+                phaseName: '阶段四：妇女节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 更新门店妇女节主题装修，添加女性友好服务信息；2. 协助商家完成后台操作培训'
+            },
+            {
+                id: 'op-p4-2',
+                name: '数据监控',
+                start: '2026-03-07',
+                end: '2026-03-09',
+                progress: 100,
+                phase: 'phase4',
+                phaseName: '阶段四：妇女节',
+                owner: '陈欣',
+                team: '杨倩',
+                taskType: '执行',
+                content: '1. 实时监控数据（女性用户转化率、套餐复购率、短视频互动量）；2. 监控POI热度，通过话题引导扩大影响'
+            },
+            {
+                id: 'op-p4-3',
+                name: '数据复盘',
+                start: '2026-03-09',
+                end: '2026-03-10',
+                progress: 100,
+                phase: 'phase4',
+                phaseName: '阶段四：妇女节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 汇总活动数据，分析效果，评估女性用户画像与消费习惯；2. 对套餐设计、达人推广、直播内容等环节复盘'
+            },
+
+            // 阶段五：植树节（2026.3.10-2026.3.14）
+            {
+                id: 'op-p5-1',
+                name: '店铺运营对接',
+                start: '2026-03-10',
+                end: '2026-03-11',
+                progress: 100,
+                phase: 'phase5',
+                phaseName: '阶段五：植树节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 优化门店植树节主题装修，添加环保理念与活动信息；2. 确保团购商品与活动匹配，协助核销培训'
+            },
+            {
+                id: 'op-p5-2',
+                name: '数据监控',
+                start: '2026-03-10',
+                end: '2026-03-13',
+                progress: 100,
+                phase: 'phase5',
+                phaseName: '阶段五：植树节',
+                owner: '杨倩',
+                team: '陈欣',
+                taskType: '执行',
+                content: '1. 监控活动数据（套餐销量、环保话题讨论量、直播人数）；2. 监控POI热度，通过环保话题引导短视频发布'
+            },
+            {
+                id: 'op-p5-3',
+                name: '数据复盘',
+                start: '2026-03-13',
+                end: '2026-03-14',
+                progress: 100,
+                phase: 'phase5',
+                phaseName: '阶段五：植树节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 整理活动数据，分析环保主题对活动效果的带动作用；2. 对活动策划、达人推广、直播运营等环节复盘'
+            },
+
+            // 阶段六：清明节（2026.3.31-2026.4.8）
+            {
+                id: 'op-p6-1',
+                name: '店铺运营对接',
+                start: '2026-03-31',
+                end: '2026-04-02',
+                progress: 100,
+                phase: 'phase6',
+                phaseName: '阶段六：清明节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 更新门店清明节主题装修，添加踏青路线、祭祀用品信息；2. 确保团购功能正常，协助完成员工AIGC培训'
+            },
+            {
+                id: 'op-p6-2',
+                name: '数据监控',
+                start: '2026-04-03',
+                end: '2026-04-06',
+                progress: 100,
+                phase: 'phase6',
+                phaseName: '阶段六：清明节',
+                owner: '陈欣',
+                team: '杨倩',
+                taskType: '执行',
+                content: '1. 实时监控数据（套餐销量、播放量、直播订单量）；2. 监控POI热度，通过清明节话题引导短视频发布'
+            },
+            {
+                id: 'op-p6-3',
+                name: '数据复盘',
+                start: '2026-04-07',
+                end: '2026-04-08',
+                progress: 100,
+                phase: 'phase6',
+                phaseName: '阶段六：清明节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 汇总活动数据，分析效果，对比预期目标找出差距；2. 对活动各环节进行复盘，总结清明节运营经验'
+            },
+
+            // 阶段七：劳动节（2026.4.25-2026.5.5）
+            {
+                id: 'op-p7-1',
+                name: '店铺运营对接',
+                start: '2026-04-25',
+                end: '2026-04-29',
+                progress: 100,
+                phase: 'phase7',
+                phaseName: '阶段七：劳动节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 优化门店劳动节主题装修，添加假期消费推荐；2. 协助商家完成后台操作培训'
+            },
+            {
+                id: 'op-p7-2',
+                name: '数据监控',
+                start: '2026-04-30',
+                end: '2026-05-03',
+                progress: 100,
+                phase: 'phase7',
+                phaseName: '阶段七：劳动节',
+                owner: '杨倩',
+                team: '陈欣',
+                taskType: '执行',
+                content: '1. 实时监控假期数据（销量峰值、用户地域分布、短视频转化率）；2. 监控POI热度，通过假期话题引导短视频发布'
+            },
+            {
+                id: 'op-p7-3',
+                name: '数据复盘',
+                start: '2026-05-04',
+                end: '2026-05-05',
+                progress: 100,
+                phase: 'phase7',
+                phaseName: '阶段七：劳动节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 汇总假期活动数据，分析消费趋势与用户行为特征；2. 对套餐设计、达人分类推广、专场直播等环节复盘'
+            },
+
+            // 阶段八：母亲节（2026.5.6-2026.5.14）
+            {
+                id: 'op-p8-1',
+                name: '数据监控',
+                start: '2026-05-09',
+                end: '2026-05-12',
+                progress: 100,
+                phase: 'phase8',
+                phaseName: '阶段八：母亲节',
+                owner: '陈欣',
+                team: '杨倩',
+                taskType: '执行',
+                content: '1. 实时监控数据（情感营销转化率、短视频互动量、直播订单量）；2. 监控POI热度，通过母亲节感恩话题引导发布'
+            },
+            {
+                id: 'op-p8-2',
+                name: '数据复盘',
+                start: '2026-05-13',
+                end: '2026-05-14',
+                progress: 100,
+                phase: 'phase8',
+                phaseName: '阶段八：母亲节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 汇总活动数据，分析情感营销对活动效果的影响；2. 对套餐情感定位、达人内容创作、直播互动等环节复盘'
+            },
+
+            // 阶段九：端午节（2026.6.15-2026.6.24）
+            {
+                id: 'op-p9-1',
+                name: '店铺运营对接',
+                start: '2026-06-15',
+                end: '2026-06-17',
+                progress: 100,
+                phase: 'phase9',
+                phaseName: '阶段九：端午节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 优化门店端午节主题装修，添加习俗与活动信息；2. 确保团购商品库存充足，协助对账培训'
+            },
+            {
+                id: 'op-p9-2',
+                name: '数据监控',
+                start: '2026-06-18',
+                end: '2026-06-20',
+                progress: 100,
+                phase: 'phase9',
+                phaseName: '阶段九：端午节',
+                owner: '杨倩',
+                team: '陈欣',
+                taskType: '执行',
+                content: '1. 实时监控数据（粽子套餐销量、礼盒订单量、播放量）；2. 监控POI热度，通过端午话题引导短视频发布'
+            },
+            {
+                id: 'op-p9-3',
+                name: '数据复盘',
+                start: '2026-06-23',
+                end: '2026-06-24',
+                progress: 100,
+                phase: 'phase9',
+                phaseName: '阶段九：端午节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 整理活动数据，分析传统习俗对消费行为的影响；2. 对活动策划、达人推广、直播内容等环节复盘'
+            },
+
+            // 阶段十：父亲节（2026.6.15-2026.6.24）
+            {
+                id: 'op-p10-1',
+                name: '店铺运营对接',
+                start: '2026-06-15',
+                end: '2026-06-17',
+                progress: 100,
+                phase: 'phase10',
+                phaseName: '阶段十：父亲节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 更新门店父亲节主题装修，添加男士产品推荐；2. 确保团购功能正常，协助后台操作检查'
+            },
+            {
+                id: 'op-p10-2',
+                name: '数据监控',
+                start: '2026-06-20',
+                end: '2026-06-22',
+                progress: 100,
+                phase: 'phase10',
+                phaseName: '阶段十：父亲节',
+                owner: '陈欣',
+                team: '杨倩',
+                taskType: '执行',
+                content: '1. 实时监控数据（男士用户转化率、套餐复购率、短视频互动量）；2. 监控POI热度，通过父亲节话题引导发布'
+            },
+            {
+                id: 'op-p10-3',
+                name: '数据复盘',
+                start: '2026-06-23',
+                end: '2026-06-24',
+                progress: 100,
+                phase: 'phase10',
+                phaseName: '阶段十：父亲节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 汇总活动数据，分析男士消费习惯与产品偏好；2. 对套餐设计、达人选择、直播内容等环节复盘'
+            },
+
+            // 阶段十一：七夕节（2026.8.15-2026.8.23）
+            {
+                id: 'op-p11-1',
+                name: '店铺运营对接',
+                start: '2026-08-15',
+                end: '2026-08-17',
+                progress: 100,
+                phase: 'phase11',
+                phaseName: '阶段十一：七夕节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 优化门店七夕节主题装修，添加浪漫元素与活动信息；2. 协助完成核销培训与核销员配置'
+            },
+            {
+                id: 'op-p11-2',
+                name: '数据监控',
+                start: '2026-08-18',
+                end: '2026-08-21',
+                progress: 100,
+                phase: 'phase11',
+                phaseName: '阶段十一：七夕节',
+                owner: '杨倩',
+                team: '陈欣',
+                taskType: '执行',
+                content: '1. 实时监控数据（情侣套餐销量、浪漫话题讨论量、直播订单量）；2. 监控POI热度，通过七夕浪漫话题引导发布'
+            },
+            {
+                id: 'op-p11-3',
+                name: '数据复盘',
+                start: '2026-08-22',
+                end: '2026-08-23',
+                progress: 100,
+                phase: 'phase11',
+                phaseName: '阶段十一：七夕节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 整理活动数据，分析浪漫主题对情侣消费的带动作用；2. 对套餐设计、达人推广、直播互动等环节复盘'
+            },
+
+            // 阶段十二：中元节（2026.8.23-2026.8.29）
+            {
+                id: 'op-p12-1',
+                name: '店铺运营对接',
+                start: '2026-08-23',
+                end: '2026-08-25',
+                progress: 100,
+                phase: 'phase12',
+                phaseName: '阶段十二：中元节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 更新门店中元节主题装修，添加祭祀用品介绍与尊重传统文案；2. 确保团购商品匹配需求，协助员工AIGC培训'
+            },
+            {
+                id: 'op-p12-2',
+                name: '数据监控',
+                start: '2026-08-26',
+                end: '2026-08-28',
+                progress: 100,
+                phase: 'phase12',
+                phaseName: '阶段十二：中元节',
+                owner: '陈欣',
+                team: '杨倩',
+                taskType: '执行',
+                content: '1. 实时监控数据（祭祀套餐销量、短视频播放合规性、直播人数）；2. 监控POI热度，通过传统习俗话题引导发布，避免不当内容'
+            },
+            {
+                id: 'op-p12-3',
+                name: '数据复盘',
+                start: '2026-08-28',
+                end: '2026-08-29',
+                progress: 100,
+                phase: 'phase12',
+                phaseName: '阶段十二：中元节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 汇总活动数据，分析传统习俗类活动的运营特点；2. 对活动策划、内容审核、达人推广等环节复盘'
+            },
+
+            // 阶段十三：教师节（2026.9.1-2026.9.14）
+            {
+                id: 'op-p13-1',
+                name: '店铺运营对接',
+                start: '2026-09-01',
+                end: '2026-09-05',
+                progress: 100,
+                phase: 'phase13',
+                phaseName: '阶段十三：教师节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 优化门店教师节主题装修，添加感恩文案与教师福利信息；2. 确保团购功能正常，协助后台培训'
+            },
+            {
+                id: 'op-p13-2',
+                name: '数据监控',
+                start: '2026-09-06',
+                end: '2026-09-12',
+                progress: 100,
+                phase: 'phase13',
+                phaseName: '阶段十三：教师节',
+                owner: '杨倩',
+                team: '陈欣',
+                taskType: '执行',
+                content: '1. 实时监控数据（教师套餐销量、感恩话题讨论量、直播订单量）；2. 监控POI热度，通过教师节感恩话题引导发布'
+            },
+            {
+                id: 'op-p13-3',
+                name: '数据复盘',
+                start: '2026-09-13',
+                end: '2026-09-14',
+                progress: 100,
+                phase: 'phase13',
+                phaseName: '阶段十三：教师节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 整理活动数据，分析感恩主题对活动效果的影响；2. 对套餐设计、达人推广、直播互动等环节复盘'
+            },
+
+            // 阶段十四：中秋节（2026.9.21-2026.9.28）
+            {
+                id: 'op-p14-1',
+                name: '店铺运营对接',
+                start: '2026-09-21',
+                end: '2026-09-23',
+                progress: 100,
+                phase: 'phase14',
+                phaseName: '阶段十四：中秋节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 优化门店中秋节主题装修，添加习俗与团圆氛围元素；2. 协助核销员配置与对账培训'
+            },
+            {
+                id: 'op-p14-2',
+                name: '数据监控',
+                start: '2026-09-24',
+                end: '2026-09-27',
+                progress: 100,
+                phase: 'phase14',
+                phaseName: '阶段十四：中秋节',
+                owner: '陈欣',
+                team: '杨倩',
+                taskType: '执行',
+                content: '1. 实时监控数据（月饼礼盒销量、团圆餐饮订单量、播放量）；2. 监控POI热度，通过中秋团圆话题引导发布'
+            },
+            {
+                id: 'op-p14-3',
+                name: '数据复盘',
+                start: '2026-09-27',
+                end: '2026-09-28',
+                progress: 100,
+                phase: 'phase14',
+                phaseName: '阶段十四：中秋节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 汇总活动数据，分析中秋团圆习俗对消费行为的影响；2. 对活动策划、达人推广、直播内容等环节复盘'
+            },
+
+            // 阶段十五：国庆节（2026.9.28-2026.10.9）
+            {
+                id: 'op-p15-1',
+                name: '店铺运营对接',
+                start: '2026-09-28',
+                end: '2026-09-29',
+                progress: 100,
+                phase: 'phase15',
+                phaseName: '阶段十五：国庆节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 优化门店国庆节主题装修，添加爱国元素与长假活动信息；2. 确保团购商品与活动匹配，协助员工AIGC培训'
+            },
+            {
+                id: 'op-p15-2',
+                name: '数据监控',
+                start: '2026-09-30',
+                end: '2026-10-07',
+                progress: 100,
+                phase: 'phase15',
+                phaseName: '阶段十五：国庆节',
+                owner: '杨倩',
+                team: '陈欣',
+                taskType: '执行',
+                content: '1. 实时监控长假数据（销量峰值、用户地域分布、爱国话题互动量）；2. 监控POI热度，通过国庆热门话题引导发布'
+            },
+            {
+                id: 'op-p15-3',
+                name: '数据复盘',
+                start: '2026-10-08',
+                end: '2026-10-09',
+                progress: 100,
+                phase: 'phase15',
+                phaseName: '阶段十五：国庆节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 汇总假期活动数据，分析长假与爱国主题对消费趋势的影响；2. 对套餐设计、达人分类推广、专场直播等环节复盘'
+            },
+
+            // 阶段十六：重阳节（2026.10.15-2026.10.20）
+            {
+                id: 'op-p16-1',
+                name: '店铺运营对接',
+                start: '2026-10-15',
+                end: '2026-10-16',
+                progress: 100,
+                phase: 'phase16',
+                phaseName: '阶段十六：重阳节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 更新门店重阳节主题装修，添加敬老文案与登高信息；2. 确保团购商品匹配需求，协助核销培训'
+            },
+            {
+                id: 'op-p16-2',
+                name: '数据监控',
+                start: '2026-10-17',
+                end: '2026-10-19',
+                progress: 100,
+                phase: 'phase16',
+                phaseName: '阶段十六：重阳节',
+                owner: '陈欣',
+                team: '杨倩',
+                taskType: '执行',
+                content: '1. 实时监控数据（敬老套餐销量、敬老话题讨论量、直播人数）；2. 监控POI热度，通过重阳节敬老话题引导发布'
+            },
+            {
+                id: 'op-p16-3',
+                name: '数据复盘',
+                start: '2026-10-19',
+                end: '2026-10-20',
+                progress: 100,
+                phase: 'phase16',
+                phaseName: '阶段十六：重阳节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 整理活动数据，分析敬老主题对活动效果的影响；2. 对套餐设计、达人推广、直播内容等环节复盘'
+            },
+
+            // 阶段十七：双11（2026.10.25-2026.11.16）
+            {
+                id: 'op-p17-1',
+                name: '店铺运营对接',
+                start: '2026-10-25',
+                end: '2026-11-05',
+                progress: 100,
+                phase: 'phase17',
+                phaseName: '阶段十七：双11',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 全面优化门店双11主题装修，突出优惠与节奏；2. 协助后台功能调试（团购、核销、优惠券），完成员工AIGC培训与核销员配置'
+            },
+            {
+                id: 'op-p17-2',
+                name: '数据监控',
+                start: '2026-11-06',
+                end: '2026-11-13',
+                progress: 100,
+                phase: 'phase17',
+                phaseName: '阶段十七：双11',
+                owner: '杨倩',
+                team: '陈欣',
+                taskType: '执行',
+                content: '1. 实时监控全时段数据（每小时套餐销量、短视频播放转化、直播GMV、POI热度）；2. 依据数据实时调整投放发布策略'
+            },
+            {
+                id: 'op-p17-3',
+                name: '数据复盘',
+                start: '2026-11-14',
+                end: '2026-11-16',
+                progress: 100,
+                phase: 'phase17',
+                phaseName: '阶段十七：双11',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 全面汇总活动数据，对比目标分析达成率，拆解各环节（达人、直播、短视频）贡献度；2. 形成详细数据报告，进行周期性复盘'
+            },
+
+            // 阶段十八：双十二（2026.12.5-2026.12.19）
+            {
+                id: 'op-p18-1',
+                name: '店铺运营对接',
+                start: '2026-12-05',
+                end: '2026-12-07',
+                progress: 100,
+                phase: 'phase18',
+                phaseName: '阶段十八：双十二',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 优化门店双十二主题装修，突出“限时折扣”“满减”等标识；2. 完成商品上架、优惠券配置，测试核销功能'
+            },
+            {
+                id: 'op-p18-2',
+                name: '数据监控',
+                start: '2026-12-08',
+                end: '2026-12-17',
+                progress: 100,
+                phase: 'phase18',
+                phaseName: '阶段十八：双十二',
+                owner: '陈欣',
+                team: '杨倩',
+                taskType: '执行',
+                content: '1. 实时监控每小时数据（套餐销量、短视频转化、直播GMV、POI热度）；2. 针对低转化内容调整投放，对爆款单品追加流量'
+            },
+            {
+                id: 'op-p18-3',
+                name: '数据复盘',
+                start: '2026-12-18',
+                end: '2026-12-19',
+                progress: 100,
+                phase: 'phase18',
+                phaseName: '阶段十八：双十二',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 汇总全周期数据，分析爆款单品特征、各渠道转化占比；2. 对比目标完成率，形成大促复盘报告'
+            },
+
+            // 阶段十九：圣诞节（2026.12.20-2026.12.28）
+            {
+                id: 'op-p19-1',
+                name: '店铺运营对接',
+                start: '2026-12-20',
+                end: '2026-12-22',
+                progress: 100,
+                phase: 'phase19',
+                phaseName: '阶段十九：圣诞节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '筹备',
+                content: '1. 优化门店圣诞节主题装修，添加圣诞元素与活动信息；2. 确保团购商品匹配主题，协助后台培训'
+            },
+            {
+                id: 'op-p19-2',
+                name: '数据监控',
+                start: '2026-12-23',
+                end: '2026-12-26',
+                progress: 100,
+                phase: 'phase19',
+                phaseName: '阶段十九：圣诞节',
+                owner: '杨倩',
+                team: '陈欣',
+                taskType: '执行',
+                content: '1. 实时监控数据（圣诞礼品销量、圣诞餐饮订单量、播放量）；2. 监控POI热度，通过圣诞相关话题引导发布'
+            },
+            {
+                id: 'op-p19-3',
+                name: '数据复盘',
+                start: '2026-12-27',
+                end: '2026-12-28',
+                progress: 100,
+                phase: 'phase19',
+                phaseName: '阶段十九：圣诞节',
+                owner: '钱雄飞',
+                team: '杨倩、陈欣',
+                taskType: '复盘',
+                content: '1. 整理活动数据，分析圣诞氛围对消费行为的影响；2. 对活动策划、达人推广、直播内容等环节复盘'
+            }
+        ];
+
+        // 全局甘特图实例（避免重复渲染）
+        let ganttInstance = null;
+
+        // 初始化甘特图
+        function initGantt(data) {
+            // 清空容器
+            const container = document.getElementById('gantt-chart');
+            container.innerHTML = '';
+            
+            // 创建新实例
+            ganttInstance = new Gantt("#gantt-chart", data, {
+                header_height: 50,
+                bar_height: 24,
+                bar_corner_radius: 4,
+                bar_fill: function(task) {
+                    return `background-color: theme('colors.${task.phase}')`;
+                },
+                task_text_align: 'left',
+                task_text_font_size: '13px',
+                axis_format: 'YYYY-MM-DD',
+                min_date: new Date('2025-12-20'),
+                max_date: new Date('2027-01-01'),
+                on_click: function(task) {
+                    showTaskDetails(task);
+                }
+            });
+        }
+
+        // 显示任务详情
+        function showTaskDetails(task) {
+            document.getElementById('modal-title').textContent = task.name;
+            document.getElementById('modal-phase').textContent = task.phaseName;
+            document.getElementById('modal-time').textContent = `${task.start} 至 ${task.end}`;
+            document.getElementById('modal-owner').textContent = task.owner;
+            document.getElementById('modal-team').textContent = task.team;
+            document.getElementById('modal-task-type').textContent = task.taskType;
+            document.getElementById('modal-content').innerHTML = task.content.replace(/1\. /g, '<br/>1. ').replace(/2\. /g, '<br/>2. ').replace(/3\. /g, '<br/>3. ');
+            document.getElementById('task-modal').classList.remove('hidden');
+        }
+
+        // 关闭弹窗
+        document.getElementById('close-modal').addEventListener('click', () => {
+            document.getElementById('task-modal').classList.add('hidden');
+        });
+        document.getElementById('modal-close-btn').addEventListener('click', () => {
+            document.getElementById('task-modal').classList.add('hidden');
+        });
+
+        // 筛选功能（精准匹配字段）
+        function filterTasks() {
+            const phase = document.getElementById('phase-filter').value;
+            const owner = document.getElementById('owner-filter').value;
+            const taskType = document.getElementById('task-type-filter').value;
+
+            const filtered = ganttData.filter(task => {
+                const phaseMatch = phase === 'all' || task.phase === phase;
+                const ownerMatch = owner === 'all' || task.owner === owner;
+                const typeMatch = taskType === 'all' || task.taskType === taskType;
+                return phaseMatch && ownerMatch && typeMatch;
+            });
+
+            initGantt(filtered);
+        }
+
+        // 绑定筛选事件
+        document.getElementById('phase-filter').addEventListener('change', filterTasks);
+        document.getElementById('owner-filter').addEventListener('change', filterTasks);
+        document.getElementById('task-type-filter').addEventListener('change', filterTasks);
+        document.getElementById('reset-filter').addEventListener('click', () => {
+            document.getElementById('phase-filter').value = 'all';
+            document.getElementById('owner-filter').value = 'all';
+            document.getElementById('task-type-filter').value = 'all';
+            filterTasks();
+        });
+
+        // 初始加载
+        initGantt(ganttData);
+    </script>
+</body>
+</html>
