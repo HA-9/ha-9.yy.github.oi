@@ -1,1022 +1,628 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026曲靖218购物广场运营部甘特图</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/frappe-gantt@0.6.1/dist/frappe-gantt.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/frappe-gantt@0.6.1/dist/frappe-gantt.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#165DFF',
-                        phase1: '#4E7DE9',
-                        phase2: '#63C2DE',
-                        phase3: '#4ECDC4',
-                        phase4: '#45B7D1',
-                        phase5: '#96CEB4',
-                        phase6: '#FFEAA7',
-                        phase7: '#DDA0DD',
-                        phase8: '#98D8C8',
-                        phase9: '#F7DC6F',
-                        phase10: '#BB8FCE',
-                        phase11: '#85C1E9',
-                        phase12: '#F8C471',
-                        phase13: '#82E0AA',
-                        phase14: '#F1948A',
-                        phase15: '#5499C7',
-                        phase16: '#F39C12',
-                        phase17: '#E74C3C',
-                        phase18: '#3498DB',
-                        phase19: '#9B59B6',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .gantt-container {
-                height: 1800px;
-                overflow-y: auto;
-                scrollbar-width: thin;
-            }
-            .header-shadow {
-                box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>居家化妆工作室 · 抖音线上运营方案</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23d4a5a5'/%3E%3Ctext x='50' y='62' font-size='40' text-anchor='middle' fill='white' font-family='serif'%3E%E5%A6%86%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+:root{
+  --cream:#faf6f1;
+  --cream-2:#f3ebe0;
+  --blush:#e8c9c4;
+  --blush-deep:#c98a8a;
+  --rose:#b86b6b;
+  --brown:#6b4f3f;
+  --brown-light:#9b8272;
+  --ink:#3a2e28;
+  --line:#e5d8cc;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--cream);color:var(--ink);line-height:1.75;
+  font-size:15px;
+}
+h1,h2,h3,h4{font-family:'Noto Serif SC',serif;color:var(--ink)}
+img{max-width:100%;display:block}
+.container{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* ===== NAV ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,246,241,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:1180px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Noto Serif SC',serif;font-weight:700;font-size:18px;color:var(--rose)}
+.nav-links{display:flex;gap:22px;font-size:13px}
+.nav-links a{color:var(--brown);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--rose)}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;height:92vh;min-height:600px;overflow:hidden;
+  display:flex;align-items:center;
+}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,rgba(250,246,241,.95) 0%,rgba(250,246,241,.7) 40%,rgba(250,246,241,.15) 100%);
+}
+.hero-content{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 28px;width:100%}
+.hero-tag{
+  display:inline-block;padding:6px 16px;border:1px solid var(--rose);
+  color:var(--rose);border-radius:30px;font-size:12px;letter-spacing:2px;
+  margin-bottom:24px;background:rgba(255,255,255,.6);
+}
+.hero h1{
+  font-size:clamp(36px,6vw,68px);font-weight:900;line-height:1.15;
+  margin-bottom:20px;letter-spacing:1px;
+}
+.hero h1 em{font-style:normal;color:var(--rose)}
+.hero p{font-size:17px;color:var(--brown);max-width:560px;margin-bottom:32px}
+.hero-meta{display:flex;gap:30px;flex-wrap:wrap;font-size:13px;color:var(--brown-light)}
+.hero-meta b{display:block;font-size:20px;color:var(--ink);font-family:'Noto Serif SC',serif}
+
+/* ===== SECTION ===== */
+section{padding:90px 0}
+.section-head{margin-bottom:50px}
+.section-num{
+  font-family:'Noto Serif SC',serif;font-size:14px;color:var(--rose);
+  letter-spacing:4px;margin-bottom:10px;
+}
+.section-head h2{font-size:36px;font-weight:700;margin-bottom:14px}
+.section-head p{color:var(--brown-light);max-width:680px;font-size:15px}
+
+/* intro */
+.intro-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center}
+.intro-img{border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(107,79,63,.15)}
+.intro-img img{width:100%;height:420px;object-fit:cover}
+.intro-text h3{font-size:24px;margin-bottom:16px;color:var(--rose)}
+.intro-text p{color:var(--brown);margin-bottom:14px}
+.intro-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.intro-tags span{
+  padding:6px 14px;background:var(--cream-2);border-radius:20px;
+  font-size:12px;color:var(--brown);
+}
+
+/* zone cards */
+.zone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.zone-card{
+  background:white;border-radius:16px;padding:32px 26px;
+  border:1px solid var(--line);transition:transform .3s,box-shadow .3s;
+}
+.zone-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(107,79,63,.1)}
+.zone-card .num{font-family:'Noto Serif SC',serif;font-size:32px;color:var(--blush-deep);font-weight:700}
+.zone-card h4{font-size:18px;margin:8px 0 12px}
+.zone-card .area{font-size:12px;color:var(--rose);margin-bottom:10px;letter-spacing:1px}
+.zone-card p{font-size:13.5px;color:var(--brown)}
+@media(max-width:768px){.zone-grid{grid-template-columns:1fr}.intro-grid{grid-template-columns:1fr}}
+
+/* capacity */
+.capacity{background:var(--cream-2);border-radius:20px;padding:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center}
+.cap-item b{display:block;font-family:'Noto Serif SC',serif;font-size:42px;color:var(--rose);font-weight:700}
+.cap-item span{font-size:13px;color:var(--brown)}
+@media(max-width:768px){.capacity{grid-template-columns:1fr;padding:30px}}
+
+/* timeline */
+.timeline{position:relative;padding-left:32px}
+.timeline::before{
+  content:'';position:absolute;left:11px;top:8px;bottom:8px;width:2px;
+  background:linear-gradient(var(--blush),var(--rose));
+}
+.tl-item{position:relative;margin-bottom:32px}
+.tl-item::before{
+  content:'';position:absolute;left:-27px;top:6px;width:14px;height:14px;
+  box-sizing:border-box;
+  border-radius:50%;background:var(--rose);border:3px solid var(--cream);
+}
+.tl-item b{font-family:'Noto Serif SC',serif;color:var(--rose);font-size:15px;letter-spacing:1px}
+.tl-item h4{font-size:17px;margin:4px 0 6px}
+.tl-item p{font-size:13.5px;color:var(--brown)}
+
+/* process steps */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.step{
+  background:white;border-radius:12px;padding:22px 18px;border-top:3px solid var(--blush);
+}
+.step .s-num{font-family:'Noto Serif SC',serif;color:var(--rose);font-size:22px;font-weight:700}
+.step h5{font-size:14px;margin:6px 0;color:var(--ink)}
+.step p{font-size:12.5px;color:var(--brown-light)}
+@media(max-width:768px){.process{grid-template-columns:1fr 1fr}}
+
+/* safety */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.col-card{background:white;border-radius:16px;padding:34px;border:1px solid var(--line)}
+.col-card h3{font-size:20px;color:var(--rose);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.col-card ul{list-style:none}
+.col-card li{
+  padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;color:var(--brown);
+  padding-left:20px;position:relative;
+}
+.col-card li::before{content:'◆';position:absolute;left:0;color:var(--blush-deep);font-size:10px;top:13px}
+.col-card li:last-child{border-bottom:none}
+@media(max-width:768px){.two-col{grid-template-columns:1fr}}
+
+/* cost section */
+.cost-bg{background:linear-gradient(180deg,var(--cream) 0%,#f7ecec 100%)}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+.plan{
+  background:white;border-radius:18px;padding:36px 28px;
+  border:1px solid var(--line);position:relative;transition:transform .3s;
+}
+.plan:hover{transform:translateY(-6px)}
+.plan.featured{border:2px solid var(--rose);background:linear-gradient(180deg,#fff 0%,#fdf5f4 100%)}
+.plan .badge{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--rose);color:white;padding:4px 16px;border-radius:20px;font-size:12px;
+  white-space:nowrap;
+}
+.plan h3{font-size:20px;margin-bottom:6px}
+.plan .sub{font-size:12.5px;color:var(--brown-light);margin-bottom:20px}
+.plan .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.plan .row span:first-child{color:var(--brown)}
+.plan .row span:last-child{font-weight:500}
+.plan .total{margin-top:18px;padding-top:18px;border-top:2px solid var(--cream-2)}
+.plan .total .rev{font-family:'Noto Serif SC',serif;font-size:26px;color:var(--rose);font-weight:700}
+.plan .total .profit{font-size:13px;color:var(--brown)}
+.plan .total .profit b{color:var(--ink);font-size:16px}
+@media(max-width:768px){.plan-grid{grid-template-columns:1fr}}
+
+#costChart{width:100%;height:420px;background:white;border-radius:16px;border:1px solid var(--line);padding:20px}
+
+/* marketing */
+.marketing-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;margin-bottom:40px}
+.marketing-img{border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(107,79,63,.15)}
+.marketing-img img{width:100%;height:380px;object-fit:cover}
+.content-types{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ct-card{background:white;padding:22px;border-radius:12px;border-left:3px solid var(--rose)}
+.ct-card h5{font-size:15px;margin-bottom:6px;color:var(--ink)}
+.ct-card p{font-size:12.5px;color:var(--brown-light)}
+@media(max-width:768px){.marketing-grid{grid-template-columns:1fr}.content-types{grid-template-columns:1fr}}
+
+/* schedule */
+.season{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.season-card{padding:30px;border-radius:16px;color:white}
+.season-card.high{background:linear-gradient(135deg,#c98a8a,#b86b6b)}
+.season-card.low{background:linear-gradient(135deg,#9b8272,#6b4f3f)}
+.season-card h4{color:white;font-size:18px;margin-bottom:10px}
+.season-card p{font-size:13.5px;opacity:.92}
+@media(max-width:768px){.season{grid-template-columns:1fr}}
+
+/* KPI */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.kpi{background:white;border-radius:12px;padding:24px;border:1px solid var(--line)}
+.kpi .icon{font-size:24px;margin-bottom:10px}
+.kpi h5{font-size:14px;color:var(--rose);margin-bottom:8px}
+.kpi ul{list-style:none;font-size:12.5px;color:var(--brown)}
+.kpi li{padding:3px 0}
+@media(max-width:768px){.kpi-grid{grid-template-columns:1fr 1fr}}
+
+/* footer */
+footer{
+  background:var(--ink);color:#d9c8b8;padding:60px 0 30px;text-align:center;
+}
+footer h3{color:white;font-size:24px;margin-bottom:10px}
+footer p{font-size:13px;opacity:.7}
+
+.anchor-spacer{height:60px}
+</style>
 </head>
-<body class="bg-gray-50 font-sans">
-    <!-- 页面头部 -->
-    <header class="bg-white header-shadow py-6 px-4 md:px-8">
-        <div class="container mx-auto">
-            <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-gray-800 flex items-center">
-                <<i class="fas fa-chart-line text-primary mr-3"></</i>
-                2026曲靖218购物广场运营部甘特图
-            </h1>
-            <p class="text-gray-500 mt-2">负责人：钱雄飞 | 核心任务：店铺运营+数据监控+数据复盘 | 覆盖19个节日</p>
-        </div>
-    </header>
+<body>
 
-    <!-- 主要内容区 -->
-    <main class="container mx-auto py-6 px-4 md:px-8">
-        <!-- 筛选工具栏（确保字段匹配） -->
-        <div class="bg-white rounded-lg p-4 mb-6 shadow-sm flex flex-wrap gap-4">
-            <div class="flex items-center">
-                <label class="text-gray-600 mr-2">节日阶段：</label>
-                <select id="phase-filter" class="border border-gray-300 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary/50">
-                    <option value="all">全部阶段</option>
-                    <option value="phase1">阶段一：元旦（2025.12.26-2026.1.6）</option>
-                    <option value="phase2">阶段二：情人节（2026.2.11-2026.2.16）</option>
-                    <option value="phase3">阶段三：春节（2026.2.10-2026.2.26）</option>
-                    <option value="phase4">阶段四：妇女节（2026.3.3-2026.3.10）</option>
-                    <option value="phase5">阶段五：植树节（2026.3.10-2026.3.14）</option>
-                    <option value="phase6">阶段六：清明节（2026.3.31-2026.4.8）</option>
-                    <option value="phase7">阶段七：劳动节（2026.4.25-2026.5.5）</option>
-                    <option value="phase8">阶段八：母亲节（2026.5.6-2026.5.14）</option>
-                    <option value="phase9">阶段九：端午节（2026.6.15-2026.6.24）</option>
-                    <option value="phase10">阶段十：父亲节（2026.6.15-2026.6.24）</option>
-                    <option value="phase11">阶段十一：七夕节（2026.8.15-2026.8.23）</option>
-                    <option value="phase12">阶段十二：中元节（2026.8.23-2026.8.29）</option>
-                    <option value="phase13">阶段十三：教师节（2026.9.1-2026.9.14）</option>
-                    <option value="phase14">阶段十四：中秋节（2026.9.21-2026.9.28）</option>
-                    <option value="phase15">阶段十五：国庆节（2026.9.28-2026.10.9）</option>
-                    <option value="phase16">阶段十六：重阳节（2026.10.15-2026.10.20）</option>
-                    <option value="phase17">阶段十七：双11（2026.10.25-2026.11.16）</option>
-                    <option value="phase18">阶段十八：双十二（2026.12.5-2026.12.19）</option>
-                    <option value="phase19">阶段十九：圣诞节（2026.12.20-2026.12.28）</option>
-                </select>
-            </div>
-            <div class="flex items-center">
-                <label class="text-gray-600 mr-2">负责人：</label>
-                <select id="owner-filter" class="border border-gray-300 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary/50">
-                    <option value="all">全部负责人</option>
-                    <option value="钱雄飞">钱雄飞（运营部负责人）</option>
-                    <option value="杨倩">杨倩（运营）</option>
-                    <option value="陈欣">陈欣（运营）</option>
-                </select>
-            </div>
-            <div class="flex items-center">
-                <label class="text-gray-600 mr-2">任务类型：</label>
-                <select id="task-type-filter" class="border border-gray-300 rounded-md px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-primary/50">
-                    <option value="all">全部类型</option>
-                    <option value="筹备">前期：店铺运营对接</option>
-                    <option value="执行">中期：数据监控</option>
-                    <option value="复盘">后期：数据复盘</option>
-                </select>
-            </div>
-            <button id="reset-filter" class="ml-auto bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-1.5 rounded-md transition-colors flex items-center">
-                <<i class="fas fa-redo mr-2"></</i>重置筛选
-            </button>
-        </div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">花花 · 化妆工作室</div>
+    <div class="nav-links">
+      <a href="#intro">项目介绍</a>
+      <a href="#zone">场地规划</a>
+      <a href="#build">打造流程</a>
+      <a href="#cost">成本收益</a>
+      <a href="#marketing">推广策略</a>
+      <a href="#kpi">效果监测</a>
+    </div>
+  </div>
+</nav>
 
-        <!-- 甘特图容器（确保渲染正常） -->
-        <div class="bg-white rounded-lg shadow-sm p-4">
-            <div id="gantt-chart" class="gantt-container"></div>
-        </div>
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="hero-bg">
+    <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/LfS4b9sHno0GlQx28TVcs2Phnvg" alt="奶油风化妆工作室">
+  </div>
+  <div class="hero-content">
+    <span class="hero-tag">DOUYIN OPERATION PLAN · 2026</span>
+    <h1>居家化妆工作室<br><em>抖音线上运营方案</em></h1>
+    <p>依托居家私密空间，以一对一精致妆造为核心，扎根昆明同城流量，用真实妆前妆后、干货教程与客片记录，打造口碑型私人化妆工作室品牌。</p>
+    <div class="hero-meta">
+      <div><b>90㎡</b><span>居家改造空间</span></div>
+      <div><b>6 类</b><span>套餐产品矩阵</span></div>
+      <div><b>4 大</b><span>内容方向</span></div>
+      <div><b>26 天</b><span>月度运营</span></div>
+    </div>
+  </div>
+</section>
 
-        <!-- 核心职责说明 -->
-        <div class="mt-6 bg-white rounded-lg p-4 shadow-sm">
-            <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
-                <<i class="fas fa-bullseye text-primary mr-2"></</i>运营部核心职责
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-600">
-                <div class="flex items-start"><<i class="fas fa-check-circle text-primary mt-1 mr-2"></</i><span>门店装修：按节日更新抖音门店视觉与文案（如春节年货专区、中元节庄重文案）</span></div>
-                <div class="flex items-start"><<i class="fas fa-check-circle text-primary mt-1 mr-2"></</i><span>系统对接：确保团购、核销功能正常，完成员工后台操作与AIGC培训</span></div>
-                <div class="flex items-start"><<i class="fas fa-check-circle text-primary mt-1 mr-2"></</i><span>数据监控：实时追踪销量、播放量、转化率、POI热度，动态调整策略</span></div>
-                <div class="flex items-start"><<i class="fas fa-check-circle text-primary mt-1 mr-2"></</i><span>合规把控：敏感节日（如中元节）确保内容庄重，避免不当表述</span></div>
-            </div>
+<!-- INTRO -->
+<section id="intro">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">01 / PROJECT</div>
+      <h2>项目介绍</h2>
+      <p>本项目为居家式化妆工作室，依托自有住房改造打造私人化妆空间，主打上门化妆 + 到店妆造双模式。</p>
+    </div>
+    <div class="intro-grid">
+      <div class="intro-img">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/RJ5xbAFk1or1IaxjHhLc9V3hn6f" alt="化妆过程">
+      </div>
+      <div class="intro-text">
+        <h3>区别于传统影楼的流水线化妆</h3>
+        <p>工作室环境温馨安静、无嘈杂客流，主打干净高级的化妆场景，以 <b>精致私密化妆间、一对一专属妆造、高性价比</b> 为核心卖点。</p>
+        <p>通过真实妆前妆后对比、化妆干货、客片记录打造差异化账号标签，扎根昆明本地同城流量，做口碑型私人化妆工作室，同时承接跟妆业务与化妆教学体验。</p>
+        <div class="intro-tags">
+          <span>备婚新娘</span><span>写真拍摄女生</span><span>约会通勤</span>
+          <span>学生演出</span><span>生日宴会</span><span>化妆教学</span>
         </div>
-    </main>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- 任务详情弹窗 -->
-    <div id="task-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg w-full max-w-2xl max-h-[80vh] overflow-y-auto p-6">
-            <div class="flex justify-between items-center mb-4">
-                <h3 id="modal-title" class="text-xl font-bold text-gray-800"></h3>
-                <button id="close-modal" class="text-gray-500 hover:text-gray-700">
-                    <<i class="fas fa-times text-xl"></</i>
-                </button>
-            </div>
-            <div class="space-y-3 text-gray-700">
-                <div class="grid grid-cols-2 gap-2">
-                    <div><span class="font-semibold text-gray-600">节日阶段：</span><span id="modal-phase"></span></div>
-                    <div><span class="font-semibold text-gray-600">执行时间：</span><span id="modal-time"></span></div>
-                    <div><span class="font-semibold text-gray-600">负责人：</span><span id="modal-owner"></span></div>
-                    <div><span class="font-semibold text-gray-600">任务类型：</span><span id="modal-task-type"></span></div>
-                </div>
-                <div>
-                    <span class="font-semibold text-gray-600">协同人员：</span>
-                    <span id="modal-team"></span>
-                </div>
-                <div>
-                    <span class="font-semibold text-gray-600">具体工作内容：</span>
-                    <div id="modal-content" class="mt-1 p-3 bg-gray-50 rounded-md text-sm"></div>
-                </div>
-            </div>
-            <div class="mt-6 text-right">
-                <button id="modal-close-btn" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-md transition-colors">
-                    关闭
-                </button>
-            </div>
-        </div>
+<!-- ZONE -->
+<section id="zone" style="background:var(--cream-2)">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">02 / SPACE</div>
+      <h2>场地规划与功能区</h2>
+      <p>按居家改造总占地约 60㎡ 计算，奶油风 / 轻法式氛围，明亮柔光、规避顶光，保障拍摄妆面清晰上镜。</p>
+    </div>
+    <div class="zone-grid">
+      <div class="zone-card">
+        <div class="num">45%</div>
+        <h4>主化妆操作区</h4>
+        <div class="area">27 ㎡ · 核心妆造位</div>
+        <p>双人化妆台（1.8m×0.6m）+ 两把化妆椅、全套彩妆收纳柜。主机位固定在此，绝大多数妆教、妆前妆后视频在此拍摄。</p>
+      </div>
+      <div class="zone-card">
+        <div class="num">30%</div>
+        <h4>氛围感打卡拍摄区</h4>
+        <div class="area">18 ㎡ · 客片出片位</div>
+        <p>背景墙 + 落地补光灯 + 头纱、鲜花、纱幔道具。妆造完成后在此拍照产出客片素材，新娘妆、写真妆重点取景地。</p>
+      </div>
+      <div class="zone-card">
+        <div class="num">25%</div>
+        <h4>等候 & 储物服务区</h4>
+        <div class="area">15 ㎡ · 洽谈与收纳</div>
+        <p>沙发等候区 + 彩妆储物柜、头饰收纳柜、一次性用品存放柜。摆放饮水、卸妆用品，作为私信预约、沟通套餐的洽谈区。</p>
+      </div>
     </div>
 
-    <script>
-        // 运营部完整任务数据（严格匹配运营.docx）
-        const ganttData = [
-            // 阶段一：元旦（2025.12.26-2026.1.6）
-            {
-                id: 'op-p1-1',
-                name: '店铺运营对接',
-                start: '2025-12-26',
-                end: '2025-12-29',
-                progress: 100,
-                phase: 'phase1',
-                phaseName: '阶段一：元旦',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 协助商家优化抖音门店基础建设（门店装修、基本信息、相册、特色品添加）；2. 确保店铺账号与抖音来客、抖音企业号后台正常对接'
-            },
-            {
-                id: 'op-p1-2',
-                name: '数据监控',
-                start: '2025-12-29',
-                end: '2026-01-04',
-                progress: 100,
-                phase: 'phase1',
-                phaseName: '阶段一：元旦',
-                owner: '杨倩',
-                team: '陈欣',
-                taskType: '执行',
-                content: '1. 每日监控运营数据（团购套餐销量、短视频播放量、直播观看人数）；2. 依据平台及元旦节点定制话题，引导带POI及话题的短视频发布，监控话题与POI热度'
-            },
-            {
-                id: 'op-p1-3',
-                name: '数据复盘',
-                start: '2026-01-04',
-                end: '2026-01-06',
-                progress: 100,
-                phase: 'phase1',
-                phaseName: '阶段一：元旦',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 整理元旦活动期间运营数据（销量、流量、达人效果），形成数据报告；2. 进行周期性复盘与数据分析，总结亮点与不足'
-            },
+    <div style="margin-top:50px" class="capacity">
+      <div class="cap-item"><b>6 单</b><span>到店单日上限</span></div>
+      <div class="cap-item"><b>2 单</b><span>上门跟妆/日</span></div>
+      <div class="cap-item"><b>4 时段</b><span>分时段预约</span></div>
+    </div>
+  </div>
+</section>
 
-            // 阶段二：情人节（2026.2.11-2026.2.16）
-            {
-                id: 'op-p2-1',
-                name: '店铺运营对接',
-                start: '2026-02-11',
-                end: '2026-02-12',
-                progress: 100,
-                phase: 'phase2',
-                phaseName: '阶段二：情人节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 检查并维护商家抖音门店信息，更新情人节相关装修与基本信息；2. 确保团购商品展示正常，协助商家熟悉抖音来客及企业号后台操作'
-            },
-            {
-                id: 'op-p2-2',
-                name: '数据监控',
-                start: '2026-02-13',
-                end: '2026-02-15',
-                progress: 100,
-                phase: 'phase2',
-                phaseName: '阶段二：情人节',
-                owner: '陈欣',
-                team: '杨倩',
-                taskType: '执行',
-                content: '1. 实时监控活动数据（套餐转化率、短视频互动量、直播销售额）；2. 监控POI热度，通过定制话题引导短视频发布，维持热度'
-            },
-            {
-                id: 'op-p2-3',
-                name: '数据复盘',
-                start: '2026-02-15',
-                end: '2026-02-16',
-                progress: 100,
-                phase: 'phase2',
-                phaseName: '阶段二：情人节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 汇总情人节活动数据，分析效果，对比预期目标找出差距；2. 对达人推广、直播运营、套餐设计等环节进行复盘，总结经验'
-            },
+<!-- BUILD -->
+<section id="build">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">03 / BUILD</div>
+      <h2>工作室打造流程</h2>
+      <p>12 天完成从空间改造到账号上线的全流程搭建。</p>
+    </div>
 
-            // 阶段三：春节（2026.2.10-2026.2.26）
-            {
-                id: 'op-p3-1',
-                name: '店铺运营对接',
-                start: '2026-02-10',
-                end: '2026-02-16',
-                progress: 100,
-                phase: 'phase3',
-                phaseName: '阶段三：春节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 优化门店春节主题装修，更新年货专区及活动信息；2. 确保店铺账号后台对接正常，协助配置套餐核销规则'
-            },
-            {
-                id: 'op-p3-2',
-                name: '数据监控',
-                start: '2026-02-17',
-                end: '2026-02-23',
-                progress: 100,
-                phase: 'phase3',
-                phaseName: '阶段三：春节',
-                owner: '杨倩',
-                team: '陈欣',
-                taskType: '执行',
-                content: '1. 每日监控活动数据（销量、播放量、直播人数、POI热度）；2. 基于数据调整运营策略，加大热门内容推广力度'
-            },
-            {
-                id: 'op-p3-3',
-                name: '数据复盘',
-                start: '2026-02-24',
-                end: '2026-02-26',
-                progress: 100,
-                phase: 'phase3',
-                phaseName: '阶段三：春节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 整理全量数据形成报告，分析亮点与不足；2. 总结年货、家庭套餐的用户偏好，为后续节日活动提供参考'
-            },
+    <div class="timeline">
+      <div class="tl-item">
+        <b>Day 1-3</b>
+        <h4>空间规划 & 硬装软装改造</h4>
+        <p>清理房间，墙面统一纯色，划分化妆区、打卡区、等候区；电路检查，预留灯光插座。</p>
+      </div>
+      <div class="tl-item">
+        <b>Day 4-7</b>
+        <h4>家具进场</h4>
+        <p>化妆台、收纳柜、沙发进场安装；分区摆放，固定拍摄机位位置，规划镜头取景范围。</p>
+      </div>
+      <div class="tl-item">
+        <b>Day 8-10</b>
+        <h4>设备调试 & 物料进场</h4>
+        <p>灯光、支架、收音设备安装调试；彩妆、耗材、配饰分类收纳；测试自然光 + 补光组合，确认无偏色。</p>
+      </div>
+      <div class="tl-item">
+        <b>Day 11</b>
+        <h4>素材试拍 & 流程测试</h4>
+        <p>拍摄第一条试拍视频（妆前妆后、化妆间环境）；模拟客户接待全流程。</p>
+      </div>
+      <div class="tl-item">
+        <b>Day 12</b>
+        <h4>验收上线</h4>
+        <p>抖音账号主页装修、团购套餐上架，预约通道开启，正式启动线上运营。</p>
+      </div>
+    </div>
 
-            // 阶段四：妇女节（2026.3.3-2026.3.10）
-            {
-                id: 'op-p4-1',
-                name: '店铺运营对接',
-                start: '2026-03-03',
-                end: '2026-03-06',
-                progress: 100,
-                phase: 'phase4',
-                phaseName: '阶段四：妇女节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 更新门店妇女节主题装修，添加女性友好服务信息；2. 协助商家完成后台操作培训'
-            },
-            {
-                id: 'op-p4-2',
-                name: '数据监控',
-                start: '2026-03-07',
-                end: '2026-03-09',
-                progress: 100,
-                phase: 'phase4',
-                phaseName: '阶段四：妇女节',
-                owner: '陈欣',
-                team: '杨倩',
-                taskType: '执行',
-                content: '1. 实时监控数据（女性用户转化率、套餐复购率、短视频互动量）；2. 监控POI热度，通过话题引导扩大影响'
-            },
-            {
-                id: 'op-p4-3',
-                name: '数据复盘',
-                start: '2026-03-09',
-                end: '2026-03-10',
-                progress: 100,
-                phase: 'phase4',
-                phaseName: '阶段四：妇女节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 汇总活动数据，分析效果，评估女性用户画像与消费习惯；2. 对套餐设计、达人推广、直播内容等环节复盘'
-            },
+    <h3 style="margin:60px 0 20px;font-size:22px">到店客户标准流程</h3>
+    <div class="process">
+      <div class="step"><div class="s-num">01</div><h5>预约环节</h5><p>私信确认妆型、时间、肤质；发定位与注意事项；提前 1 小时微信提醒。</p></div>
+      <div class="step"><div class="s-num">02</div><h5>到店接待</h5><p>核验预约，引导入座，提供饮水，沟通妆造风格与参考图。</p></div>
+      <div class="step"><div class="s-num">03</div><h5>妆前护肤</h5><p>观察肤质，讲解妆面思路，确认喜好，规避雷点。</p></div>
+      <div class="step"><div class="s-num">04</div><h5>化妆操作</h5><p>40-120 分钟按妆型完成；同步录制素材，边化边讲解。</p></div>
+      <div class="step"><div class="s-num">05</div><h5>调整 + 打卡</h5><p>妆面细节调整，引导打卡区拍摄客片，征得同意留存素材。</p></div>
+      <div class="step"><div class="s-num">06</div><h5>收尾离场</h5><p>持妆技巧告知，引导好评与带定位发布，赠送小礼品。</p></div>
+      <div class="step"><div class="s-num">07</div><h5>沉淀私域</h5><p>添加微信，后续复购、转介绍、朋友圈客片持续触达。</p></div>
+      <div class="step"><div class="s-num">08</div><h5>复购转化</h5><p>节日节点、老客转介绍福利、套餐组合持续激活。</p></div>
+    </div>
+  </div>
+</section>
 
-            // 阶段五：植树节（2026.3.10-2026.3.14）
-            {
-                id: 'op-p5-1',
-                name: '店铺运营对接',
-                start: '2026-03-10',
-                end: '2026-03-11',
-                progress: 100,
-                phase: 'phase5',
-                phaseName: '阶段五：植树节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 优化门店植树节主题装修，添加环保理念与活动信息；2. 确保团购商品与活动匹配，协助核销培训'
-            },
-            {
-                id: 'op-p5-2',
-                name: '数据监控',
-                start: '2026-03-10',
-                end: '2026-03-13',
-                progress: 100,
-                phase: 'phase5',
-                phaseName: '阶段五：植树节',
-                owner: '杨倩',
-                team: '陈欣',
-                taskType: '执行',
-                content: '1. 监控活动数据（套餐销量、环保话题讨论量、直播人数）；2. 监控POI热度，通过环保话题引导短视频发布'
-            },
-            {
-                id: 'op-p5-3',
-                name: '数据复盘',
-                start: '2026-03-13',
-                end: '2026-03-14',
-                progress: 100,
-                phase: 'phase5',
-                phaseName: '阶段五：植树节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 整理活动数据，分析环保主题对活动效果的带动作用；2. 对活动策划、达人推广、直播运营等环节复盘'
-            },
+<!-- SAFETY -->
+<section style="background:var(--cream-2)">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">04 / SERVICE</div>
+      <h2>卫生与服务保障</h2>
+    </div>
+    <div class="two-col">
+      <div class="col-card">
+        <h3>卫生标准</h3>
+        <ul>
+          <li>粉扑、唇刷全部一次性使用；可重复刷子每次使用后酒精消毒</li>
+          <li>彩妆表面每日擦拭；每单结束后台面、地面清理</li>
+          <li>一次性用品足量备货，不重复使用；护肤品分装避免交叉接触</li>
+          <li>提前询问过敏史，备精简温和护肤，不适立即停止操作</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h3>服务保障</h3>
+        <ul>
+          <li>严控进入人员，拍摄前主动询问是否同意出镜，保护客户肖像</li>
+          <li>妆后 4 小时内脱妆、瑕疵可免费到店补妆</li>
+          <li>跟妆订单写清套餐明细，无隐形消费</li>
+          <li>改期支持提前 24 小时调整；主理人突发情况提前沟通协商</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-            // 阶段六：清明节（2026.3.31-2026.4.8）
-            {
-                id: 'op-p6-1',
-                name: '店铺运营对接',
-                start: '2026-03-31',
-                end: '2026-04-02',
-                progress: 100,
-                phase: 'phase6',
-                phaseName: '阶段六：清明节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 更新门店清明节主题装修，添加踏青路线、祭祀用品信息；2. 确保团购功能正常，协助完成员工AIGC培训'
-            },
-            {
-                id: 'op-p6-2',
-                name: '数据监控',
-                start: '2026-04-03',
-                end: '2026-04-06',
-                progress: 100,
-                phase: 'phase6',
-                phaseName: '阶段六：清明节',
-                owner: '陈欣',
-                team: '杨倩',
-                taskType: '执行',
-                content: '1. 实时监控数据（套餐销量、播放量、直播订单量）；2. 监控POI热度，通过清明节话题引导短视频发布'
-            },
-            {
-                id: 'op-p6-3',
-                name: '数据复盘',
-                start: '2026-04-07',
-                end: '2026-04-08',
-                progress: 100,
-                phase: 'phase6',
-                phaseName: '阶段六：清明节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 汇总活动数据，分析效果，对比预期目标找出差距；2. 对活动各环节进行复盘，总结清明节运营经验'
-            },
+<!-- COST -->
+<section id="cost" class="cost-bg">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">05 / FINANCE</div>
+      <h2>成本与收益测算</h2>
+      <p>按月运营 26 天计算，提供 3 套人员配置方案，随订单规模灵活切换。</p>
+    </div>
 
-            // 阶段七：劳动节（2026.4.25-2026.5.5）
-            {
-                id: 'op-p7-1',
-                name: '店铺运营对接',
-                start: '2026-04-25',
-                end: '2026-04-29',
-                progress: 100,
-                phase: 'phase7',
-                phaseName: '阶段七：劳动节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 优化门店劳动节主题装修，添加假期消费推荐；2. 协助商家完成后台操作培训'
-            },
-            {
-                id: 'op-p7-2',
-                name: '数据监控',
-                start: '2026-04-30',
-                end: '2026-05-03',
-                progress: 100,
-                phase: 'phase7',
-                phaseName: '阶段七：劳动节',
-                owner: '杨倩',
-                team: '陈欣',
-                taskType: '执行',
-                content: '1. 实时监控假期数据（销量峰值、用户地域分布、短视频转化率）；2. 监控POI热度，通过假期话题引导短视频发布'
-            },
-            {
-                id: 'op-p7-3',
-                name: '数据复盘',
-                start: '2026-05-04',
-                end: '2026-05-05',
-                progress: 100,
-                phase: 'phase7',
-                phaseName: '阶段七：劳动节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 汇总假期活动数据，分析消费趋势与用户行为特征；2. 对套餐设计、达人分类推广、专场直播等环节复盘'
-            },
+    <div class="plan-grid">
+      <div class="plan">
+        <h3>版本一 · 单人自运营</h3>
+        <div class="sub">起步阶段 · 花姐自己，无雇工</div>
+        <div class="row"><span>耗材成本</span><span>2,800 元</span></div>
+        <div class="row"><span>营销推广</span><span>2,000 元</span></div>
+        <div class="row"><span>人力成本</span><span>0 元（不计薪）</span></div>
+        <div class="row" style="border-top:2px solid var(--cream-2)"><span><b>月成本合计</b></span><span><b>4,800 元</b></span></div>
+        <div class="total">
+          <div class="rev">13,292 元</div>
+          <div class="profit">月度总收入 · 净利润 <b>8,492 元</b></div>
+        </div>
+      </div>
 
-            // 阶段八：母亲节（2026.5.6-2026.5.14）
-            {
-                id: 'op-p8-1',
-                name: '数据监控',
-                start: '2026-05-09',
-                end: '2026-05-12',
-                progress: 100,
-                phase: 'phase8',
-                phaseName: '阶段八：母亲节',
-                owner: '陈欣',
-                team: '杨倩',
-                taskType: '执行',
-                content: '1. 实时监控数据（情感营销转化率、短视频互动量、直播订单量）；2. 监控POI热度，通过母亲节感恩话题引导发布'
-            },
-            {
-                id: 'op-p8-2',
-                name: '数据复盘',
-                start: '2026-05-13',
-                end: '2026-05-14',
-                progress: 100,
-                phase: 'phase8',
-                phaseName: '阶段八：母亲节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 汇总活动数据，分析情感营销对活动效果的影响；2. 对套餐情感定位、达人内容创作、直播互动等环节复盘'
-            },
+      <div class="plan featured">
+        <div class="badge">推荐中期版本</div>
+        <h3>版本二 · 主理 + 1 助理</h3>
+        <div class="sub">流量起量后 · 助理负责拍摄剪辑客服</div>
+        <div class="row"><span>人力成本（助理）</span><span>6,000 元</span></div>
+        <div class="row"><span>耗材成本</span><span>2,800 元</span></div>
+        <div class="row"><span>营销推广</span><span>2,000 元</span></div>
+        <div class="row" style="border-top:2px solid var(--cream-2)"><span><b>月成本合计</b></span><span><b>10,800 元</b></span></div>
+        <div class="total">
+          <div class="rev">20,976 元</div>
+          <div class="profit">月度总收入 · 净利润 <b>10,176 元</b></div>
+        </div>
+      </div>
 
-            // 阶段九：端午节（2026.6.15-2026.6.24）
-            {
-                id: 'op-p9-1',
-                name: '店铺运营对接',
-                start: '2026-06-15',
-                end: '2026-06-17',
-                progress: 100,
-                phase: 'phase9',
-                phaseName: '阶段九：端午节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 优化门店端午节主题装修，添加习俗与活动信息；2. 确保团购商品库存充足，协助对账培训'
-            },
-            {
-                id: 'op-p9-2',
-                name: '数据监控',
-                start: '2026-06-18',
-                end: '2026-06-20',
-                progress: 100,
-                phase: 'phase9',
-                phaseName: '阶段九：端午节',
-                owner: '杨倩',
-                team: '陈欣',
-                taskType: '执行',
-                content: '1. 实时监控数据（粽子套餐销量、礼盒订单量、播放量）；2. 监控POI热度，通过端午话题引导短视频发布'
-            },
-            {
-                id: 'op-p9-3',
-                name: '数据复盘',
-                start: '2026-06-23',
-                end: '2026-06-24',
-                progress: 100,
-                phase: 'phase9',
-                phaseName: '阶段九：端午节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 整理活动数据，分析传统习俗对消费行为的影响；2. 对活动策划、达人推广、直播内容等环节复盘'
-            },
+      <div class="plan">
+        <h3>版本三 · 主理 + 2 助理</h3>
+        <div class="sub">旺季高配 · 客服剪辑 + 妆助</div>
+        <div class="row"><span>人力成本（2 人）</span><span>12,000 元</span></div>
+        <div class="row"><span>耗材成本</span><span>2,800 元</span></div>
+        <div class="row"><span>营销推广</span><span>2,000 元</span></div>
+        <div class="row" style="border-top:2px solid var(--cream-2)"><span><b>月成本合计</b></span><span><b>16,800 元</b></span></div>
+        <div class="total">
+          <div class="rev">31,420 元</div>
+          <div class="profit">月度总收入 · 净利润 <b>14,620 元</b></div>
+        </div>
+      </div>
+    </div>
 
-            // 阶段十：父亲节（2026.6.15-2026.6.24）
-            {
-                id: 'op-p10-1',
-                name: '店铺运营对接',
-                start: '2026-06-15',
-                end: '2026-06-17',
-                progress: 100,
-                phase: 'phase10',
-                phaseName: '阶段十：父亲节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 更新门店父亲节主题装修，添加男士产品推荐；2. 确保团购功能正常，协助后台操作检查'
-            },
-            {
-                id: 'op-p10-2',
-                name: '数据监控',
-                start: '2026-06-20',
-                end: '2026-06-22',
-                progress: 100,
-                phase: 'phase10',
-                phaseName: '阶段十：父亲节',
-                owner: '陈欣',
-                team: '杨倩',
-                taskType: '执行',
-                content: '1. 实时监控数据（男士用户转化率、套餐复购率、短视频互动量）；2. 监控POI热度，通过父亲节话题引导发布'
-            },
-            {
-                id: 'op-p10-3',
-                name: '数据复盘',
-                start: '2026-06-23',
-                end: '2026-06-24',
-                progress: 100,
-                phase: 'phase10',
-                phaseName: '阶段十：父亲节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 汇总活动数据，分析男士消费习惯与产品偏好；2. 对套餐设计、达人选择、直播内容等环节复盘'
-            },
+    <div id="costChart"></div>
 
-            // 阶段十一：七夕节（2026.8.15-2026.8.23）
-            {
-                id: 'op-p11-1',
-                name: '店铺运营对接',
-                start: '2026-08-15',
-                end: '2026-08-17',
-                progress: 100,
-                phase: 'phase11',
-                phaseName: '阶段十一：七夕节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 优化门店七夕节主题装修，添加浪漫元素与活动信息；2. 协助完成核销培训与核销员配置'
-            },
-            {
-                id: 'op-p11-2',
-                name: '数据监控',
-                start: '2026-08-18',
-                end: '2026-08-21',
-                progress: 100,
-                phase: 'phase11',
-                phaseName: '阶段十一：七夕节',
-                owner: '杨倩',
-                team: '陈欣',
-                taskType: '执行',
-                content: '1. 实时监控数据（情侣套餐销量、浪漫话题讨论量、直播订单量）；2. 监控POI热度，通过七夕浪漫话题引导发布'
-            },
-            {
-                id: 'op-p11-3',
-                name: '数据复盘',
-                start: '2026-08-22',
-                end: '2026-08-23',
-                progress: 100,
-                phase: 'phase11',
-                phaseName: '阶段十一：七夕节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 整理活动数据，分析浪漫主题对情侣消费的带动作用；2. 对套餐设计、达人推广、直播互动等环节复盘'
-            },
+    <p style="margin-top:24px;font-size:13px;color:var(--brown-light);text-align:center">
+      * 以上为保守均值预估，婚礼旺季 / 毕业季 / 情人节订单量可上浮 30%~50%；居家无房租成本为核心优势。
+    </p>
+  </div>
+</section>
 
-            // 阶段十二：中元节（2026.8.23-2026.8.29）
-            {
-                id: 'op-p12-1',
-                name: '店铺运营对接',
-                start: '2026-08-23',
-                end: '2026-08-25',
-                progress: 100,
-                phase: 'phase12',
-                phaseName: '阶段十二：中元节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 更新门店中元节主题装修，添加祭祀用品介绍与尊重传统文案；2. 确保团购商品匹配需求，协助员工AIGC培训'
-            },
-            {
-                id: 'op-p12-2',
-                name: '数据监控',
-                start: '2026-08-26',
-                end: '2026-08-28',
-                progress: 100,
-                phase: 'phase12',
-                phaseName: '阶段十二：中元节',
-                owner: '陈欣',
-                team: '杨倩',
-                taskType: '执行',
-                content: '1. 实时监控数据（祭祀套餐销量、短视频播放合规性、直播人数）；2. 监控POI热度，通过传统习俗话题引导发布，避免不当内容'
-            },
-            {
-                id: 'op-p12-3',
-                name: '数据复盘',
-                start: '2026-08-28',
-                end: '2026-08-29',
-                progress: 100,
-                phase: 'phase12',
-                phaseName: '阶段十二：中元节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 汇总活动数据，分析传统习俗类活动的运营特点；2. 对活动策划、内容审核、达人推广等环节复盘'
-            },
+<!-- MARKETING -->
+<section id="marketing">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">06 / MARKETING</div>
+      <h2>抖音自有账号内容矩阵</h2>
+      <p>不投外部达人，全部以自有账号拍摄产出为主，可一主多辅。</p>
+    </div>
 
-            // 阶段十三：教师节（2026.9.1-2026.9.14）
-            {
-                id: 'op-p13-1',
-                name: '店铺运营对接',
-                start: '2026-09-01',
-                end: '2026-09-05',
-                progress: 100,
-                phase: 'phase13',
-                phaseName: '阶段十三：教师节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 优化门店教师节主题装修，添加感恩文案与教师福利信息；2. 确保团购功能正常，协助后台培训'
-            },
-            {
-                id: 'op-p13-2',
-                name: '数据监控',
-                start: '2026-09-06',
-                end: '2026-09-12',
-                progress: 100,
-                phase: 'phase13',
-                phaseName: '阶段十三：教师节',
-                owner: '杨倩',
-                team: '陈欣',
-                taskType: '执行',
-                content: '1. 实时监控数据（教师套餐销量、感恩话题讨论量、直播订单量）；2. 监控POI热度，通过教师节感恩话题引导发布'
-            },
-            {
-                id: 'op-p13-3',
-                name: '数据复盘',
-                start: '2026-09-13',
-                end: '2026-09-14',
-                progress: 100,
-                phase: 'phase13',
-                phaseName: '阶段十三：教师节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 整理活动数据，分析感恩主题对活动效果的影响；2. 对套餐设计、达人推广、直播互动等环节复盘'
-            },
+    <div class="marketing-grid">
+      <div class="marketing-img">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/ZBgxbPZurolyFlxhPE6cd2q0nJf" alt="抖音拍摄场景">
+      </div>
+      <div>
+        <h3 style="margin-bottom:20px;font-size:22px">账号定位</h3>
+        <p style="color:var(--brown);margin-bottom:20px">昆明居家私人化妆｜一对一精致妆造｜新娘跟妆</p>
+        <div class="content-types">
+          <div class="ct-card"><h5>① 妆前妆后对比</h5><p>流量主力。原相机直出，无过度滤镜，突出换头效果。</p></div>
+          <div class="ct-card"><h5>② 化妆干货教程</h5><p>俯拍机位，边化边讲解，如贴仙子毛、底妆不卡粉。</p></div>
+          <div class="ct-card"><h5>③ 工作室日常 vlog</h5><p>化妆间全景、接单日常，突出私密干净氛围。</p></div>
+          <div class="ct-card"><h5>④ 客片成品合集</h5><p>征得客户同意后剪辑，重点展示新娘、写真氛围感。</p></div>
+        </div>
+      </div>
+    </div>
 
-            // 阶段十四：中秋节（2026.9.21-2026.9.28）
-            {
-                id: 'op-p14-1',
-                name: '店铺运营对接',
-                start: '2026-09-21',
-                end: '2026-09-23',
-                progress: 100,
-                phase: 'phase14',
-                phaseName: '阶段十四：中秋节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 优化门店中秋节主题装修，添加习俗与团圆氛围元素；2. 协助核销员配置与对账培训'
-            },
-            {
-                id: 'op-p14-2',
-                name: '数据监控',
-                start: '2026-09-24',
-                end: '2026-09-27',
-                progress: 100,
-                phase: 'phase14',
-                phaseName: '阶段十四：中秋节',
-                owner: '陈欣',
-                team: '杨倩',
-                taskType: '执行',
-                content: '1. 实时监控数据（月饼礼盒销量、团圆餐饮订单量、播放量）；2. 监控POI热度，通过中秋团圆话题引导发布'
-            },
-            {
-                id: 'op-p14-3',
-                name: '数据复盘',
-                start: '2026-09-27',
-                end: '2026-09-28',
-                progress: 100,
-                phase: 'phase14',
-                phaseName: '阶段十四：中秋节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 汇总活动数据，分析中秋团圆习俗对消费行为的影响；2. 对活动策划、达人推广、直播内容等环节复盘'
-            },
+    <div class="marketing-grid" style="margin-top:20px">
+      <div>
+        <h3 style="margin-bottom:20px;font-size:22px">发布与直播节奏</h3>
+        <div class="col-card" style="padding:28px">
+          <ul>
+            <li>每日发布 1-2 条短视频，固定时段 12:00 / 19:00</li>
+            <li>每周 2 场同城直播，晚 19:30-21:00</li>
+            <li>直播内容：化妆过程实时直播、妆容答疑连麦、团购秒杀</li>
+            <li>直播间下单送补妆包、优先锁定周末黄金档期</li>
+            <li>话题标签：#昆明化妆 #昆明新娘跟妆 #昆明居家化妆工作室 #昆明约会妆 #方圆脸妆容</li>
+          </ul>
+        </div>
+      </div>
+      <div class="marketing-img">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/SuKBbx7ocori7WxDCgPcP25Nn0c" alt="新娘妆成品" style="height:380px;object-fit:cover">
+      </div>
+    </div>
 
-            // 阶段十五：国庆节（2026.9.28-2026.10.9）
-            {
-                id: 'op-p15-1',
-                name: '店铺运营对接',
-                start: '2026-09-28',
-                end: '2026-09-29',
-                progress: 100,
-                phase: 'phase15',
-                phaseName: '阶段十五：国庆节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 优化门店国庆节主题装修，添加爱国元素与长假活动信息；2. 确保团购商品与活动匹配，协助员工AIGC培训'
-            },
-            {
-                id: 'op-p15-2',
-                name: '数据监控',
-                start: '2026-09-30',
-                end: '2026-10-07',
-                progress: 100,
-                phase: 'phase15',
-                phaseName: '阶段十五：国庆节',
-                owner: '杨倩',
-                team: '陈欣',
-                taskType: '执行',
-                content: '1. 实时监控长假数据（销量峰值、用户地域分布、爱国话题互动量）；2. 监控POI热度，通过国庆热门话题引导发布'
-            },
-            {
-                id: 'op-p15-3',
-                name: '数据复盘',
-                start: '2026-10-08',
-                end: '2026-10-09',
-                progress: 100,
-                phase: 'phase15',
-                phaseName: '阶段十五：国庆节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 汇总假期活动数据，分析长假与爱国主题对消费趋势的影响；2. 对套餐设计、达人分类推广、专场直播等环节复盘'
-            },
+    <h3 style="margin:60px 0 20px;font-size:22px">同城流量玩法 & 私域联动</h3>
+    <div class="two-col">
+      <div class="col-card">
+        <h3>线上同城</h3>
+        <ul>
+          <li>每条视频固定挂载 POI 定位，开启同城优先推荐</li>
+          <li>评论区 & 私信统一 SOP，主动询问需求引导预约</li>
+          <li>客户自愿发抖音带定位，赠送睫毛 / 补妆小样激励 UGC</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h3>线下私域</h3>
+        <ul>
+          <li>全部客户引导加微信，朋友圈持续更新客片、档期表</li>
+          <li>老客转介绍成交，赠送免费补妆或优惠券</li>
+          <li>情人节、七夕、毕业季、婚期旺季推出限定套餐</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-            // 阶段十六：重阳节（2026.10.15-2026.10.20）
-            {
-                id: 'op-p16-1',
-                name: '店铺运营对接',
-                start: '2026-10-15',
-                end: '2026-10-16',
-                progress: 100,
-                phase: 'phase16',
-                phaseName: '阶段十六：重阳节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 更新门店重阳节主题装修，添加敬老文案与登高信息；2. 确保团购商品匹配需求，协助核销培训'
-            },
-            {
-                id: 'op-p16-2',
-                name: '数据监控',
-                start: '2026-10-17',
-                end: '2026-10-19',
-                progress: 100,
-                phase: 'phase16',
-                phaseName: '阶段十六：重阳节',
-                owner: '陈欣',
-                team: '杨倩',
-                taskType: '执行',
-                content: '1. 实时监控数据（敬老套餐销量、敬老话题讨论量、直播人数）；2. 监控POI热度，通过重阳节敬老话题引导发布'
-            },
-            {
-                id: 'op-p16-3',
-                name: '数据复盘',
-                start: '2026-10-19',
-                end: '2026-10-20',
-                progress: 100,
-                phase: 'phase16',
-                phaseName: '阶段十六：重阳节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 整理活动数据，分析敬老主题对活动效果的影响；2. 对套餐设计、达人推广、直播内容等环节复盘'
-            },
+<!-- SEASON -->
+<section style="background:var(--cream-2)">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">07 / CALENDAR</div>
+      <h2>运营节奏 · 淡旺季</h2>
+    </div>
+    <div class="season">
+      <div class="season-card high">
+        <h4>旺季 · 3-5 月 / 9-11 月</h4>
+        <p>主推订婚妆、新娘跟妆、婚礼晨袍妆；多拍新娘妆客片；高配 2 助理模式；加大同城投流承接大单。</p>
+      </div>
+      <div class="season-card low">
+        <h4>淡季 · 6-8 月 / 12-2 月</h4>
+        <p>主推写真妆、毕业妆、约会妆、化妆教学体验课；保留 1 名助理，缩减人力成本；多拍干货教程拉新。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            // 阶段十七：双11（2026.10.25-2026.11.16）
-            {
-                id: 'op-p17-1',
-                name: '店铺运营对接',
-                start: '2026-10-25',
-                end: '2026-11-05',
-                progress: 100,
-                phase: 'phase17',
-                phaseName: '阶段十七：双11',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 全面优化门店双11主题装修，突出优惠与节奏；2. 协助后台功能调试（团购、核销、优惠券），完成员工AIGC培训与核销员配置'
-            },
-            {
-                id: 'op-p17-2',
-                name: '数据监控',
-                start: '2026-11-06',
-                end: '2026-11-13',
-                progress: 100,
-                phase: 'phase17',
-                phaseName: '阶段十七：双11',
-                owner: '杨倩',
-                team: '陈欣',
-                taskType: '执行',
-                content: '1. 实时监控全时段数据（每小时套餐销量、短视频播放转化、直播GMV、POI热度）；2. 依据数据实时调整投放发布策略'
-            },
-            {
-                id: 'op-p17-3',
-                name: '数据复盘',
-                start: '2026-11-14',
-                end: '2026-11-16',
-                progress: 100,
-                phase: 'phase17',
-                phaseName: '阶段十七：双11',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 全面汇总活动数据，对比目标分析达成率，拆解各环节（达人、直播、短视频）贡献度；2. 形成详细数据报告，进行周期性复盘'
-            },
+<!-- KPI -->
+<section id="kpi">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">08 / KPI</div>
+      <h2>效果监测与复盘</h2>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <h5>账号层面</h5>
+        <ul>
+          <li>粉丝增长数</li>
+          <li>视频播放量 / 完播率</li>
+          <li>点赞、评论、分享</li>
+          <li>主页访问量</li>
+          <li>私信咨询量</li>
+        </ul>
+      </div>
+      <div class="kpi">
+        <h5>团购预约</h5>
+        <ul>
+          <li>团购链接点击量</li>
+          <li>团购下单数</li>
+          <li>核销率</li>
+          <li>客单价</li>
+          <li>档期成交</li>
+        </ul>
+      </div>
+      <div class="kpi">
+        <h5>转化层面</h5>
+        <ul>
+          <li>私信线索量</li>
+          <li>加微信私域数</li>
+          <li>老客复购率</li>
+          <li>转介绍订单占比</li>
+        </ul>
+      </div>
+      <div class="kpi">
+        <h5>直播层面</h5>
+        <ul>
+          <li>观看人数 / 峰值</li>
+          <li>平均观看时长</li>
+          <li>互动评论数</li>
+          <li>直播团购下单量</li>
+        </ul>
+      </div>
+    </div>
 
-            // 阶段十八：双十二（2026.12.5-2026.12.19）
-            {
-                id: 'op-p18-1',
-                name: '店铺运营对接',
-                start: '2026-12-05',
-                end: '2026-12-07',
-                progress: 100,
-                phase: 'phase18',
-                phaseName: '阶段十八：双十二',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 优化门店双十二主题装修，突出“限时折扣”“满减”等标识；2. 完成商品上架、优惠券配置，测试核销功能'
-            },
-            {
-                id: 'op-p18-2',
-                name: '数据监控',
-                start: '2026-12-08',
-                end: '2026-12-17',
-                progress: 100,
-                phase: 'phase18',
-                phaseName: '阶段十八：双十二',
-                owner: '陈欣',
-                team: '杨倩',
-                taskType: '执行',
-                content: '1. 实时监控每小时数据（套餐销量、短视频转化、直播GMV、POI热度）；2. 针对低转化内容调整投放，对爆款单品追加流量'
-            },
-            {
-                id: 'op-p18-3',
-                name: '数据复盘',
-                start: '2026-12-18',
-                end: '2026-12-19',
-                progress: 100,
-                phase: 'phase18',
-                phaseName: '阶段十八：双十二',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 汇总全周期数据，分析爆款单品特征、各渠道转化占比；2. 对比目标完成率，形成大促复盘报告'
-            },
+    <div class="two-col" style="margin-top:40px">
+      <div class="col-card">
+        <h3>周复盘</h3>
+        <p style="font-size:14px;color:var(--brown)">每周日复盘视频播放、咨询量，识别高流量内容方向，下周优先多拍同类型；及时调整投流与发布时段。</p>
+      </div>
+      <div class="col-card">
+        <h3>月复盘</h3>
+        <p style="font-size:14px;color:var(--brown)">统计当月订单、营收、客单价，调整套餐价格、视频方向、投流预算；重点关注同城播放占比，优先保证昆明本地精准女生流量。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            // 阶段十九：圣诞节（2026.12.20-2026.12.28）
-            {
-                id: 'op-p19-1',
-                name: '店铺运营对接',
-                start: '2026-12-20',
-                end: '2026-12-22',
-                progress: 100,
-                phase: 'phase19',
-                phaseName: '阶段十九：圣诞节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '筹备',
-                content: '1. 优化门店圣诞节主题装修，添加圣诞元素与活动信息；2. 确保团购商品匹配主题，协助后台培训'
-            },
-            {
-                id: 'op-p19-2',
-                name: '数据监控',
-                start: '2026-12-23',
-                end: '2026-12-26',
-                progress: 100,
-                phase: 'phase19',
-                phaseName: '阶段十九：圣诞节',
-                owner: '杨倩',
-                team: '陈欣',
-                taskType: '执行',
-                content: '1. 实时监控数据（圣诞礼品销量、圣诞餐饮订单量、播放量）；2. 监控POI热度，通过圣诞相关话题引导发布'
-            },
-            {
-                id: 'op-p19-3',
-                name: '数据复盘',
-                start: '2026-12-27',
-                end: '2026-12-28',
-                progress: 100,
-                phase: 'phase19',
-                phaseName: '阶段十九：圣诞节',
-                owner: '钱雄飞',
-                team: '杨倩、陈欣',
-                taskType: '复盘',
-                content: '1. 整理活动数据，分析圣诞氛围对消费行为的影响；2. 对活动策划、达人推广、直播内容等环节复盘'
-            }
-        ];
+<footer>
+  <div class="container">
+    <h3>花花 · 居家化妆工作室</h3>
+    <p>昆明同城 · 一对一精致妆造 · 新娘跟妆 · 抖音线上运营方案 · 2026</p>
+  </div>
+</footer>
 
-        // 全局甘特图实例（避免重复渲染）
-        let ganttInstance = null;
+<script>
+// 成本收益对比图
+var chart = echarts.init(document.getElementById('costChart'));
+chart.setOption({
+  title:{text:'三版本 · 月度成本 / 收入 / 净利润对比（元）',left:'center',textStyle:{fontSize:15,fontFamily:'Noto Serif SC',color:'#3a2e28'}},
+  tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
+  legend:{bottom:0,data:['月度成本','月度收入','净利润']},
+  grid:{left:'3%',right:'4%',bottom:'12%',top:'15%',containLabel:true},
+  xAxis:{type:'category',data:['单人自运营','主理+1助理','主理+2助理'],axisLabel:{fontSize:13}},
+  yAxis:{type:'value',axisLabel:{fontSize:12}},
+  series:[
+    {name:'月度成本',type:'bar',data:[4800,10800,16800],itemStyle:{color:'#9b8272',borderRadius:[4,4,0,0]},barWidth:28},
+    {name:'月度收入',type:'bar',data:[13292,20976,31420],itemStyle:{color:'#c98a8a',borderRadius:[4,4,0,0]},barWidth:28},
+    {name:'净利润',type:'bar',data:[8492,10176,14620],itemStyle:{color:'#b86b6b',borderRadius:[4,4,0,0]},barWidth:28,
+      label:{show:true,position:'top',fontSize:11,color:'#b86b6b'}}
+  ]
+});
+window.addEventListener('resize',function(){chart.resize()});
+</script>
 
-        // 初始化甘特图
-        function initGantt(data) {
-            // 清空容器
-            const container = document.getElementById('gantt-chart');
-            container.innerHTML = '';
-            
-            // 创建新实例
-            ganttInstance = new Gantt("#gantt-chart", data, {
-                header_height: 50,
-                bar_height: 24,
-                bar_corner_radius: 4,
-                bar_fill: function(task) {
-                    return `background-color: theme('colors.${task.phase}')`;
-                },
-                task_text_align: 'left',
-                task_text_font_size: '13px',
-                axis_format: 'YYYY-MM-DD',
-                min_date: new Date('2025-12-20'),
-                max_date: new Date('2027-01-01'),
-                on_click: function(task) {
-                    showTaskDetails(task);
-                }
-            });
-        }
-
-        // 显示任务详情
-        function showTaskDetails(task) {
-            document.getElementById('modal-title').textContent = task.name;
-            document.getElementById('modal-phase').textContent = task.phaseName;
-            document.getElementById('modal-time').textContent = `${task.start} 至 ${task.end}`;
-            document.getElementById('modal-owner').textContent = task.owner;
-            document.getElementById('modal-team').textContent = task.team;
-            document.getElementById('modal-task-type').textContent = task.taskType;
-            document.getElementById('modal-content').innerHTML = task.content.replace(/1\. /g, '<br/>1. ').replace(/2\. /g, '<br/>2. ').replace(/3\. /g, '<br/>3. ');
-            document.getElementById('task-modal').classList.remove('hidden');
-        }
-
-        // 关闭弹窗
-        document.getElementById('close-modal').addEventListener('click', () => {
-            document.getElementById('task-modal').classList.add('hidden');
-        });
-        document.getElementById('modal-close-btn').addEventListener('click', () => {
-            document.getElementById('task-modal').classList.add('hidden');
-        });
-
-        // 筛选功能（精准匹配字段）
-        function filterTasks() {
-            const phase = document.getElementById('phase-filter').value;
-            const owner = document.getElementById('owner-filter').value;
-            const taskType = document.getElementById('task-type-filter').value;
-
-            const filtered = ganttData.filter(task => {
-                const phaseMatch = phase === 'all' || task.phase === phase;
-                const ownerMatch = owner === 'all' || task.owner === owner;
-                const typeMatch = taskType === 'all' || task.taskType === taskType;
-                return phaseMatch && ownerMatch && typeMatch;
-            });
-
-            initGantt(filtered);
-        }
-
-        // 绑定筛选事件
-        document.getElementById('phase-filter').addEventListener('change', filterTasks);
-        document.getElementById('owner-filter').addEventListener('change', filterTasks);
-        document.getElementById('task-type-filter').addEventListener('change', filterTasks);
-        document.getElementById('reset-filter').addEventListener('click', () => {
-            document.getElementById('phase-filter').value = 'all';
-            document.getElementById('owner-filter').value = 'all';
-            document.getElementById('task-type-filter').value = 'all';
-            filterTasks();
-        });
-
-        // 初始加载
-        initGantt(ganttData);
-    </script>
 </body>
 </html>
